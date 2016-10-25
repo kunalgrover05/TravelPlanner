@@ -1,0 +1,54 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 24
+    buildToolsVersion "24.0.3"
+
+    defaultConfig {
+        applicationId "com.kunalgrover05.travelplanner"
+        minSdkVersion 21
+        targetSdkVersion 24
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        debug {
+            Properties properties = new Properties()
+            properties.load(project.rootProject.file('local.properties').newDataInputStream())
+            def apiKey = properties.getProperty('google.api.key')
+            resValue "string", "api_key", apiKey
+        }
+        release {
+            Properties properties = new Properties()
+            properties.load(project.rootProject.file('local.properties').newDataInputStream())
+            def apiKey = properties.getProperty('google.api.key')
+            resValue "string", "api_key", apiKey
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    testCompile 'junit:junit:4.12'
+    compile 'org.apache.commons:commons-lang3:3.4'
+    compile 'com.android.support:appcompat-v7:24.2.1'
+    compile 'com.google.android.gms:play-services:9.6.1'
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    compile 'com.android.support:recyclerview-v7:24.2.0'
+    compile 'com.google.code.gson:gson:2.7'
+    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+    provided 'org.glassfish:javax.annotation:10.0-b28'
+    compile 'io.reactivex:rxjava:1.1.6'
+    compile 'io.reactivex:rxandroid:1.2.1'
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
+    compile 'com.fasterxml.jackson.core:jackson-core:2.8.4'
+    compile 'com.fasterxml.jackson.core:jackson-annotations:2.8.4'
+    compile 'org.mod4j.org.apache.commons:lang:2.1.0'
+    compile 'com.google.firebase:firebase-database:9.6.1'
+}
+
+apply plugin: 'com.google.gms.google-services'

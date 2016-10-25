@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="0dp">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical" android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:padding="0dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="24dp"
+            android:text="ITEM"
+            android:id="@+id/label"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="24dp"
+            android:text="ITEM"
+            android:id="@+id/adder"
+            />
+    </LinearLayout>
+    <ImageView
+        android:id="@+id/image_view"
+        android:layout_width="100dp"
+        android:layout_alignParentRight="true"
+        android:layout_height="100dp"
+        android:background="#dddddd"/>
+</RelativeLayout>
